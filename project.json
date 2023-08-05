@@ -25,9 +25,14 @@
         ],
         "styles": [
           "@angular/material/prebuilt-themes/deeppurple-amber.css",
-          "./src/styles.scss"
+          "./src/styles.scss",
+          "node_modules/datatables.net-bs5/css/dataTables.bootstrap5.min.css"
         ],
-        "scripts": []
+        "scripts": [
+          "node_modules/jquery/dist/jquery.min.js",
+          "node_modules/datatables.net/js/jquery.dataTables.min.js",
+          "node_modules/datatables.net-bs5/js/dataTables.bootstrap5.min.js"
+        ]
       },
       "configurations": {
         "production": {
