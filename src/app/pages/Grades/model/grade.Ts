@@ -1,5 +1,7 @@
 export interface grade {
-    Semester1?:string;
-    Semester2?:string;
-    AcademicYear?:string;
+    id?:number;
+    name:string;
+    semester1?:string;
+    semester2?:string;
+    academicYear?:string;
   }

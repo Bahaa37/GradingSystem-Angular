@@ -19,12 +19,12 @@ export class StudentService {
     return this.httpClient.get<student>(this.baseUrl + 'GetStudent/' + Id);
   }
   AddStudent(Name: string, NationalId: string, AcademicYear: string) {
-    const dataNew = {'Name':Name,'NationalId':NationalId,'AcademicYear':AcademicYear};
-    return this.httpClient.post(this.baseUrl + 'AddStudent',{},{params:dataNew})
+    const data = { 'Name': Name, 'NationalId': NationalId, 'AcademicYear': AcademicYear };
+    return this.httpClient.post(this.baseUrl + 'AddStudent', {}, { params: data })
   }
-  editStudent(Id:number,Name: string, NationalId: string, AcademicYear: string) {
-    const dataNew = {'Name':Name,'NationalId':NationalId,'AcademicYear':AcademicYear};
-    return this.httpClient.post(this.baseUrl + 'EditStudent/'+Id,{},{params:dataNew})
+  editStudent(Id: number, Name: string, NationalId: string, AcademicYear: string) {
+    const data = { 'Name': Name, 'NationalId': NationalId, 'AcademicYear': AcademicYear };
+    return this.httpClient.post(this.baseUrl + 'EditStudent/' + Id, {}, { params: data })
   }
   DeleteStudent(Id: number) {
     return this.httpClient.post(this.baseUrl + 'DeleteStudent/', Id);

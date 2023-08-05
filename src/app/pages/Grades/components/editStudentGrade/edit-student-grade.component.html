@@ -1,1 +1,19 @@
-<p>edit-student-grade works!</p>
+<h1 class="alert" mat-dialog-title> Edit Student Subject Grades </h1>
+<div mat-dialog-content>
+  <form class="my-1" [formGroup]="editGradeForm" (ngSubmit)="onSubmit()">
+
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="semester1">Semster 1:</span>
+      <input id="semester1" type="text" class="form-control" aria-describedby="semester1" formControlName="semester1" >
+    </div>
+
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="semester2">Semster 2: </span>
+      <input id="semester2" type="text" class="form-control px-5" aria-describedby="semester2"  formControlName="semester2" >
+    </div>
+
+
+    <p>Complete the form to enable button.</p>
+    <button   class="btn btn-outline-success" type="submit" [disabled]="!editGradeForm.valid">Submit</button>
+  </form>
+</div>
