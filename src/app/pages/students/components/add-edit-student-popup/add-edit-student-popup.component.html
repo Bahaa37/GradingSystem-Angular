@@ -1,6 +1,26 @@
-<h1 mat-dialog-title> Add New Student </h1>
+<h1 class="alert" mat-dialog-title> Add New Student </h1>
 <div mat-dialog-content>
-    <ul>
-      <h1 >      </h1>
-  </ul> 
+  <form class="my-1" [formGroup]="addStudentForm" (ngSubmit)="onSubmit()">
+
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="first-name">Name:</span>
+      <input id="name" type="text" class="form-control" aria-describedby="first-name" formControlName="name" >
+    </div>
+
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="nationalId">National Id: </span>
+      <input id="nationalId" type="text" class="form-control px-5" aria-describedby="nationalId"  formControlName="nationalId" >
+    </div>
+
+    <div class="input-group mb-3">
+      <label class="input-group-text" for="academicYear">Academic Year: </label>
+      <select class="form-select" id="academicYear" formControlName="academicYear" >
+        <option disabled selected>Choose...</option>
+        <option *ngFor="let year of AcademicYears" [ngValue]="year"> {{year}}</option>
+      </select>
+    </div>
+
+    <p>Complete the form to enable button.</p>
+    <button   class="btn btn-outline-success" type="submit" [disabled]="!addStudentForm.valid">Submit</button>
+  </form>
 </div>

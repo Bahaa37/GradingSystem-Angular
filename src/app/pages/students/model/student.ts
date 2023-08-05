@@ -4,5 +4,5 @@ export interface student {
     nationalId?:string;
     overAllGrade?:string ;
     academicYear?:string;
-    subjects?:[];
+    subjects?:any[];
   }

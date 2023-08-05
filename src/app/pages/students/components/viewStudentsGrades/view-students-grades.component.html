@@ -1,0 +1,31 @@
+<div class="container p-3">
+
+    <div class="table-responsive my-5" *ngIf="data.subjects?.length">
+        <table class="table
+        table-hover
+        table-bordered
+        text-center
+        align-middle">
+            <thead class="table-light">
+                <caption>{{data.name}}</caption>
+
+                <tr>
+                    <th>Subject</th>
+                    <th>Total</th>
+                    <th>Grade</th>
+                </tr>
+            </thead>
+            <tbody class="table-group-divider">
+                <tr class="table-primary" *ngFor="let subject of data.subjects">
+                    <td>{{subject.name}}</td>
+                    <td>{{subject.studentDegree}}</td>
+                    <td>{{subject.grade}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="!data.subjects?.length  " class="alert alert-danger "> This Student Has No Grades yet</div>
+    <button class="btn btn-outline-danger m-1 " (click)="closePopUp()">Close</button>
+</div>
+

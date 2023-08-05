@@ -3,23 +3,30 @@ import { HttpClient } from '@angular/common/http';
 import { student } from '../model/student';
 
 
+
 @Injectable()
 export class StudentService {
 
-  constructor(private httpClient: HttpClient) {  }
+  constructor(private httpClient: HttpClient) { }
 
   HostPort = 5241;
-  baseUrl = 'http://localhost:'+this.HostPort+'/api/student/getAll/';
-  studentsdatagetall(){
-    return this.httpClient.get<student[]>(this.baseUrl);
+  baseUrl = 'http://localhost:' + this.HostPort + '/api/student/';
+
+  studentsdatagetall() {
+    return this.httpClient.get<student[]>(this.baseUrl + 'getAll/');
   }
-  studentGetById(Id:number){
-    return this.httpClient.get<student>(this.baseUrl+Id);
+  studentGetById(Id: number) {
+    return this.httpClient.get<student>(this.baseUrl + 'GetStudent/' + Id);
   }
-  AddStudent(Name:string,NattionalId:string,AcademicYear:string){
-     return this.httpClient.post<student>(this.baseUrl,{Name,NattionalId,AcademicYear});
+  AddStudent(Name: string, NationalId: string, AcademicYear: string) {
+    const dataNew = {'Name':Name,'NationalId':NationalId,'AcademicYear':AcademicYear};
+    return this.httpClient.post(this.baseUrl + 'AddStudent',{},{params:dataNew})
   }
-   DeleteStudent(Id:number){
-    return this.httpClient.post<student>(this.baseUrl,Id);
+  editStudent(Id:number,Name: string, NationalId: string, AcademicYear: string) {
+    const dataNew = {'Name':Name,'NationalId':NationalId,'AcademicYear':AcademicYear};
+    return this.httpClient.post(this.baseUrl + 'EditStudent/'+Id,{},{params:dataNew})
+  }
+  DeleteStudent(Id: number) {
+    return this.httpClient.post(this.baseUrl + 'DeleteStudent/', Id);
   }
 }
